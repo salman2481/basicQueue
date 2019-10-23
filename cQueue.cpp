@@ -86,6 +86,25 @@ public:
 	Destructor of stack class is called implicitely and work fine
 	No need to redefne the destructor
 	*/
+	//this is the copy of the prevoisly described cqueue &add function
+	cQueue& add(cNode *&nodeRef) {
+		//this is the if condition
+		if (tailRef)
+		{
+			tailRef->nextNode = nodeRef;
+			tailRef = tailRef->nextNode;
+		}
+		//this is the else condition if if condition is false
+		else
+		{
+			tailRef = topRef = nodeRef;
+		}
+		tailRef->nextNode = NULL;
+		nodeRef = NULL;
+		
+		return *this;
+	}
+
 
 };
 #pragma once
